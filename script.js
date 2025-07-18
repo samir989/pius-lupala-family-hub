@@ -1,3 +1,13 @@
+// Unique user ID logic (must be first!)
+(function() {
+    let userId = localStorage.getItem('familyHubUserId');
+    if (!userId) {
+        userId = 'user_' + Math.random().toString(36).substr(2, 16) + Date.now();
+        localStorage.setItem('familyHubUserId', userId);
+    }
+    window.currentUserId = userId;
+})();
+
 // --- Utility Functions ---
 function saveToLocalStorage(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
