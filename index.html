@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pius Lupala Family Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Pius Lupala Family Hub</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="zoom.html">Zoom Links</a>
+        </nav>
+    </header>
+    <main>
+        <section class="table-section" id="calendar-section">
+            <h2>Calendar Meetings</h2>
+            <div id="calendar"></div>
+            <div id="calendar-meetings-modal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeCalendarModal()">&times;</span>
+                    <h3 id="calendar-modal-title"></h3>
+                    <div id="calendar-meetings-list"></div>
+                    <form id="calendar-meeting-form" onsubmit="submitCalendarMeeting(event)">
+                        <input type="hidden" id="calendar-meeting-date">
+                        <div class="form-group">
+                            <label>Agenda</label>
+                            <input type="text" id="calendar-meeting-agenda" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Decisions</label>
+                            <textarea id="calendar-meeting-decisions" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Zoom Link</label>
+                            <input type="url" id="calendar-meeting-zoom" placeholder="https://zoom.us/...">
+                        </div>
+                        <button type="submit" class="add-btn">Add Meeting</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="table-section" id="family-section">
+            <h2>Family</h2>
+            <table id="family-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+            
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button class="add-btn" onclick="addFamilyRow()">Add Family Member</button>
+        </section>
+        <section class="table-section" id="meetings-section">
+            <h2>Meetings</h2>
+            <table id="meetings-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Agenda</th>
+                        <th>Decisions</th>
+                        <th>Zoom Link</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button class="add-btn" onclick="addMeetingRow()">Add Meeting</button>
+        </section>
+        <section class="table-section" id="michango-section">
+            <h2>Michango</h2>
+            <table id="michango-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Purpose</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button class="add-btn" onclick="addMichangoRow()">Add Michango</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Pius Lupala Family Hub</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
