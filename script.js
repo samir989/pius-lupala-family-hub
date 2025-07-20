@@ -1,13 +1,3 @@
-// Unique user ID logic (must be first!)
-(function() {
-    let userId = localStorage.getItem('familyHubUserId');
-    if (!userId) {
-        userId = 'user_' + Math.random().toString(36).substr(2, 16) + Date.now();
-        localStorage.setItem('familyHubUserId', userId);
-    }
-    window.currentUserId = userId;
-})();
-
 // --- Utility Functions ---
 function saveToLocalStorage(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
@@ -16,6 +6,20 @@ function loadFromLocalStorage(key) {
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : [];
 }
+// --- Error Message Utility ---
+function showError(message) {
+    const errorDiv = document.getElementById('error-message');
+    if (errorDiv) {
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+        setTimeout(() => { hideError(); }, 6000);
+    }
+}
+function hideError() {
+    const errorDiv = document.getElementById('error-message');
+    if (errorDiv) errorDiv.style.display = 'none';
+}
+
 // --- Family Table (Firestore) ---
 let familyData = [];
 
@@ -44,8 +48,12 @@ function renderFamilyTable() {
 }
 
 async function addFamilyRow() {
-    const docRef = await db.collection('family').add({ name: '', phone: '', creatorId: window.currentUserId });
-    await loadFamilyData();
+    try {
+        await db.collection('family').add({ name: '', phone: '', creatorId: window.currentUserId });
+        await loadFamilyData();
+    } catch (err) {
+        showError('Failed to add family member: ' + (err && err.message ? err.message : err));
+    }
 }
 
 async function removeFamilyRow(id) {
@@ -187,8 +195,12 @@ function renderMeetingsTable() {
 }
 
 async function addMeetingRow() {
-    await db.collection('meetings').add({ date: '', agenda: '', decisions: '', zoom: '', creatorId: window.currentUserId });
-    await loadMeetingsData();
+    try {
+        await db.collection('meetings').add({ date: '', agenda: '', decisions: '', zoom: '', creatorId: window.currentUserId });
+        await loadMeetingsData();
+    } catch (err) {
+        showError('Failed to add meeting: ' + (err && err.message ? err.message : err));
+    }
 }
 
 async function removeMeetingRow(id) {
@@ -239,8 +251,12 @@ function renderMichangoTable() {
 }
 
 async function addMichangoRow() {
-    await db.collection('michango').add({ date: '', name: '', amount: '', purpose: '', creatorId: window.currentUserId });
-    await loadMichangoData();
+    try {
+        await db.collection('michango').add({ date: '', name: '', amount: '', purpose: '', creatorId: window.currentUserId });
+        await loadMichangoData();
+    } catch (err) {
+        showError('Failed to add michango: ' + (err && err.message ? err.message : err));
+    }
 }
 
 async function removeMichangoRow(id) {
@@ -261,6 +277,22 @@ async function updateMichangoRow(id, field, value) {
 
 // --- Initialization ---
 window.onload = async function() {
+    // Display user ID
+    const userIdSpan = document.getElementById('user-id-value');
+    if (userIdSpan && window.currentUserId) {
+        userIdSpan.textContent = window.currentUserId;
+    }
+    // Copy to clipboard logic
+    const copyBtn = document.getElementById('copy-user-id-btn');
+    if (copyBtn && window.currentUserId) {
+        copyBtn.onclick = function() {
+            navigator.clipboard.writeText(window.currentUserId).then(() => {
+                const oldText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => { copyBtn.textContent = oldText; }, 1200);
+            });
+        };
+    }
     await loadFamilyData();
     await loadMeetingsData();
     await loadMichangoData();
