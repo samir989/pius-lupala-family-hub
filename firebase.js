@@ -14,4 +14,4 @@ if (firebase.analytics) {
   firebase.analytics();
 }
 
-const db = firebase.firestore();
+window.db = firebase.firestore();
