@@ -21,6 +21,8 @@ Mama Group is a production-ready Flutter starter for a Tanzanian VICOBA / Women 
 7. For Android, add the generated `android/app/google-services.json` and configure Gradle using the current FlutterFire docs.
 
 ## Run
+This repository includes committed Android and iOS scaffold folders plus Firebase placeholder files. Replace the Firebase placeholders with real files before release.
+
 ```bash
 flutter pub get
 flutter run
