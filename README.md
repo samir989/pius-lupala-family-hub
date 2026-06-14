@@ -8,6 +8,7 @@ Mama Group is a production-ready Flutter starter for a Tanzanian VICOBA / Women 
 - Dashboard totals, recent transactions and upcoming meetings.
 - PDF reports via `pdf` and `printing`.
 - Firebase Cloud Messaging initialization for loan, meeting and savings reminder workflows.
+- Customer Support System with in-app tickets, admin replies, Help Center, WhatsApp/email contact options, and a floating AI Help Assistant.
 - Provider state management, Clean Architecture-inspired folders, responsive Material 3 UI.
 
 ## Firebase configuration
@@ -26,4 +27,4 @@ flutter run
 ```
 
 ## Data collections
-`users`, `members`, `savings`, `loans`, `social_fund`, and `meetings` match the requested schema. Sample seed data is in `assets/sample_data/mama_group_seed.json`.
+`users`, `members`, `savings`, `loans`, `social_fund`, `meetings`, and `support_tickets` match the requested schema. Sample seed data is in `assets/sample_data/mama_group_seed.json`.

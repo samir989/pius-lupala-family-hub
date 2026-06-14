@@ -8,6 +8,7 @@ import '../screens/social_fund/social_fund_screen.dart';
 import '../screens/meetings/meetings_screen.dart';
 import '../screens/reports/reports_screen.dart';
 import '../screens/settings/settings_screen.dart';
+import '../screens/support/support_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -23,6 +24,7 @@ class AppDrawer extends StatelessWidget {
       (l.t('social'), Icons.volunteer_activism, const SocialFundScreen()),
       (l.t('meetings'), Icons.event, const MeetingsScreen()),
       (l.t('reports'), Icons.picture_as_pdf, const ReportsScreen()),
+      (l.t('support'), Icons.support_agent, const SupportScreen()),
       (l.t('settings'), Icons.settings, const SettingsScreen()),
     ];
     return Drawer(

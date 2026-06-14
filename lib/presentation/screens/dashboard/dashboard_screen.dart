@@ -4,6 +4,7 @@ import '../../../data/repositories/group_repository.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../widgets/app_drawer.dart';
 import '../../widgets/summary_card.dart';
+import '../../widgets/ai_help_button.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -14,6 +15,7 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('${l.t('app')} ${l.t('dashboard')}')),
       drawer: const AppDrawer(),
+      floatingActionButton: const AiHelpButton(),
       body: ListView(padding: const EdgeInsets.all(16), children: [
         FutureBuilder(
           future: repo.service.totals(),

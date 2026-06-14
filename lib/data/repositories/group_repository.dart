@@ -4,6 +4,7 @@ import '../models/member.dart';
 import '../models/saving.dart';
 import '../models/loan.dart';
 import '../models/social_fund_record.dart';
+import '../models/support_ticket.dart';
 import '../models/meeting.dart';
 import '../services/firestore_service.dart';
 
@@ -17,6 +18,25 @@ class GroupRepository {
   Stream<List<Loan>> loans() => service.streamCollection(AppConstants.loans, orderBy: 'issueDate').map((s) => s.docs.map((d) => Loan.fromMap(d.id, d.data())).toList());
   Stream<List<SocialFundRecord>> socialFund() => service.streamCollection(AppConstants.socialFund, orderBy: 'date').map((s) => s.docs.map((d) => SocialFundRecord.fromMap(d.id, d.data())).toList());
   Stream<List<Meeting>> meetings() => service.streamCollection(AppConstants.meetings, orderBy: 'date').map((s) => s.docs.map((d) => Meeting.fromMap(d.id, d.data())).toList());
+
+
+  Stream<List<SupportTicket>> supportTickets({String? userId}) {
+    final stream = service.streamCollection(AppConstants.supportTickets, orderBy: 'createdAt');
+    return stream.map((s) {
+      final tickets = s.docs.map((d) => SupportTicket.fromMap(d.id, d.data())).toList();
+      return userId == null ? tickets : tickets.where((ticket) => ticket.userId == userId).toList();
+    });
+  }
+
+  Future<void> createSupportTicket(SupportTicket ticket) => service.add(AppConstants.supportTickets, ticket.toMap());
+
+  Future<void> replyToSupportTicket(String ticketId, String reply, {String status = 'open'}) => service.set(AppConstants.supportTickets, ticketId, {
+        'reply': reply,
+        'status': status,
+        'updatedAt': DateTime.now(),
+      });
+
+  Future<void> resolveSupportTicket(String ticketId) => service.set(AppConstants.supportTickets, ticketId, {'status': 'resolved', 'updatedAt': DateTime.now()});
 
   Future<void> saveMember(Member member) async {
     final isNew = member.id.isEmpty;

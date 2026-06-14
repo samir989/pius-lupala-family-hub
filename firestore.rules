@@ -35,6 +35,13 @@ service cloud.firestore {
       allow read: if signedIn();
       allow create, update, delete: if admin();
     }
+
+    match /support_tickets/{docId} {
+      allow read: if admin() || (signedIn() && resource.data.userId == request.auth.uid);
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if admin();
+      allow delete: if admin();
+    }
     match /summaries/{docId} {
       allow read: if signedIn();
       allow write: if admin();

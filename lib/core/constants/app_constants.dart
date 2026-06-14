@@ -5,6 +5,7 @@ class AppConstants {
   static const loans = 'loans';
   static const socialFund = 'social_fund';
   static const meetings = 'meetings';
+  static const supportTickets = 'support_tickets';
   static const summaries = 'summaries';
   static const groupSummary = 'group';
 }

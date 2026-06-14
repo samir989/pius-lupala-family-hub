@@ -3,5 +3,6 @@
   "savings": [{"memberId":"sample-member-1","amount":50000,"date":"2026-06-01"}],
   "loans": [{"memberId":"sample-member-1","amount":200000,"interest":10,"balance":220000,"issueDate":"2026-05-01","dueDate":"2026-08-01"}],
   "social_fund": [{"type":"contribution","amount":10000,"description":"Monthly social fund","date":"2026-06-01"}],
-  "meetings": [{"date":"2026-06-20","agenda":"Monthly savings review","decisions":"Approve new loan applications"}]
+  "meetings": [{"date":"2026-06-20","agenda":"Monthly savings review","decisions":"Approve new loan applications"}],
+  "support_tickets": [{"userId":"sample-user-1","message":"Ninawezaje kurekodi akiba ya wiki?","reply":"Fungua Akiba kisha bonyeza + kuweka mchango.","status":"open","createdAt":"2026-06-10"}]
 }
