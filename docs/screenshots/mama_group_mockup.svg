@@ -1,0 +1,58 @@
+<svg width="1200" height="820" viewBox="0 0 1200 820" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F7FFF9"/><stop offset="1" stop-color="#DFF7E8"/></linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#168A45"/><stop offset="1" stop-color="#0B4D2A"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0B4D2A" flood-opacity=".18"/></filter>
+    <style>
+      .phone{fill:#111827}.screen{fill:url(#bg)}.top{fill:url(#green)}.card{fill:white;filter:url(#shadow)}.muted{fill:#6B7280;font-family:Inter,Arial,sans-serif;font-size:18px}.title{fill:#111827;font-family:Inter,Arial,sans-serif;font-weight:700;font-size:26px}.small{fill:#6B7280;font-family:Inter,Arial,sans-serif;font-size:14px}.white{fill:white;font-family:Inter,Arial,sans-serif}.amount{fill:#0B4D2A;font-family:Inter,Arial,sans-serif;font-weight:800;font-size:24px}.label{fill:#374151;font-family:Inter,Arial,sans-serif;font-weight:700;font-size:16px}.pill{fill:#E7F8EC}.sw{fill:#168A45;font-family:Inter,Arial,sans-serif;font-size:13px;font-weight:700}
+    </style>
+  </defs>
+  <rect width="1200" height="820" rx="40" fill="#F0FFF4"/>
+  <text x="60" y="82" fill="#0B4D2A" font-family="Inter,Arial" font-size="42" font-weight="800">Mama Group</text>
+  <text x="60" y="118" class="muted">Digital VICOBA and Women Savings Group app — Kiswahili-first, green African fintech dashboard</text>
+
+  <g transform="translate(70,165)">
+    <rect class="phone" width="310" height="590" rx="34"/>
+    <rect class="screen" x="14" y="18" width="282" height="554" rx="24"/>
+    <rect class="top" x="14" y="18" width="282" height="108" rx="24"/>
+    <text x="34" y="68" class="white" font-size="24" font-weight="800">Mama Group</text>
+    <text x="34" y="96" class="white" font-size="14">Dashibodi</text>
+    <circle cx="258" cy="70" r="22" fill="white" opacity=".22"/><text x="250" y="77" class="white" font-size="20">☰</text>
+    <g transform="translate(30,148)">
+      <rect class="card" width="112" height="92" rx="18"/><text x="16" y="30" class="small">Wanachama</text><text x="16" y="66" class="amount">42</text>
+      <rect class="card" x="128" width="112" height="92" rx="18"/><text x="144" y="30" class="small">Akiba</text><text x="144" y="66" class="amount">2.4M</text>
+      <rect class="card" y="108" width="112" height="92" rx="18"/><text x="16" y="138" class="small">Mikopo</text><text x="16" y="174" class="amount">820K</text>
+      <rect class="card" x="128" y="108" width="112" height="92" rx="18"/><text x="144" y="138" class="small">Mfuko</text><text x="144" y="174" class="amount">310K</text>
+    </g>
+    <text x="30" y="382" class="title" font-size="20">Miamala ya Karibuni</text>
+    <rect x="30" y="402" width="240" height="54" rx="16" fill="white"/><circle cx="58" cy="429" r="16" fill="#E7F8EC"/><text x="52" y="435" fill="#168A45">↗</text><text x="84" y="424" class="label">Akiba</text><text x="84" y="444" class="small">TZS 50,000</text>
+    <rect x="30" y="466" width="240" height="54" rx="16" fill="white"/><circle cx="58" cy="493" r="16" fill="#E7F8EC"/><text x="52" y="499" fill="#168A45">✓</text><text x="84" y="488" class="label">Mkutano ujao</text><text x="84" y="508" class="small">20 Juni 2026</text>
+  </g>
+
+  <g transform="translate(445,165)">
+    <rect class="phone" width="310" height="590" rx="34"/>
+    <rect class="screen" x="14" y="18" width="282" height="554" rx="24"/>
+    <rect class="top" x="14" y="18" width="282" height="88" rx="24"/>
+    <text x="34" y="72" class="white" font-size="22" font-weight="800">Wanachama</text>
+    <rect x="30" y="128" width="250" height="44" rx="14" fill="white"/><text x="52" y="156" class="small">🔍 Tafuta Wanachama</text>
+    <g transform="translate(30,195)">
+      <rect class="card" width="250" height="76" rx="18"/><circle cx="34" cy="38" r="24" fill="#168A45"/><text x="26" y="46" class="white" font-size="20">A</text><text x="72" y="34" class="label">Asha Juma</text><text x="72" y="56" class="small">+255 700 000 001 • NIDA</text>
+      <rect class="card" y="92" width="250" height="76" rx="18"/><circle cx="34" cy="130" r="24" fill="#0B4D2A"/><text x="26" y="138" class="white" font-size="20">F</text><text x="72" y="126" class="label">Fatuma Ally</text><text x="72" y="148" class="small">Dar es Salaam</text>
+      <rect class="card" y="184" width="250" height="118" rx="18"/><text x="20" y="224" class="label">Ongeza Mwanachama</text><rect x="20" y="244" width="210" height="34" rx="10" fill="#F3F4F6"/><text x="32" y="266" class="small">Jina, simu, NIDA, anwani</text>
+    </g>
+    <circle cx="244" cy="520" r="30" fill="#168A45"/><text x="233" y="531" class="white" font-size="34">+</text>
+  </g>
+
+  <g transform="translate(820,165)">
+    <rect class="phone" width="310" height="590" rx="34"/>
+    <rect class="screen" x="14" y="18" width="282" height="554" rx="24"/>
+    <rect class="top" x="14" y="18" width="282" height="88" rx="24"/>
+    <text x="34" y="72" class="white" font-size="22" font-weight="800">Mikopo &amp; Ripoti</text>
+    <g transform="translate(30,132)">
+      <rect class="card" width="250" height="92" rx="18"/><text x="20" y="34" class="small">Ombi la Mkopo</text><text x="20" y="68" class="amount">TZS 200,000</text><rect x="170" y="26" width="58" height="26" rx="13" class="pill"/><text x="183" y="44" class="sw">10%</text>
+      <rect class="card" y="112" width="250" height="92" rx="18"/><text x="20" y="146" class="small">Salio lililobaki</text><text x="20" y="180" class="amount">TZS 220,000</text>
+      <rect class="card" y="224" width="250" height="148" rx="18"/><text x="20" y="260" class="label">Ripoti</text><text x="20" y="290" class="small">• Savings Report</text><text x="20" y="318" class="small">• Loan Report</text><text x="20" y="346" class="small">• Monthly PDF Export</text>
+      <rect x="20" y="392" width="210" height="46" rx="16" fill="#168A45"/><text x="74" y="422" class="white" font-size="16" font-weight="700">Hamisha PDF</text>
+    </g>
+  </g>
+</svg>
