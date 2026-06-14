@@ -2,7 +2,42 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    match /users/{userId} { allow read, update: if signedIn() && request.auth.uid == userId; allow create: if signedIn(); }
-    match /{collection}/{docId} { allow read, write: if signedIn() && collection in ['members','savings','loans','social_fund','meetings']; }
+    function userPath() { return /databases/$(database)/documents/users/$(request.auth.uid); }
+    function hasUserDoc() { return signedIn() && exists(userPath()); }
+    function role() { return hasUserDoc() ? get(userPath()).data.role : 'member'; }
+    function admin() { return role() == 'admin'; }
+    function owner(userId) { return signedIn() && request.auth.uid == userId; }
+
+    match /users/{userId} {
+      allow read: if owner(userId) || admin();
+      allow create: if signedIn() && (owner(userId) || admin());
+      allow update: if owner(userId) || admin();
+      allow delete: if admin();
+    }
+
+    match /members/{docId} {
+      allow read: if signedIn();
+      allow create, update, delete: if admin();
+    }
+    match /savings/{docId} {
+      allow read: if signedIn();
+      allow create, update, delete: if admin();
+    }
+    match /loans/{docId} {
+      allow read: if signedIn();
+      allow create, update, delete: if admin();
+    }
+    match /social_fund/{docId} {
+      allow read: if signedIn();
+      allow create, update, delete: if admin();
+    }
+    match /meetings/{docId} {
+      allow read: if signedIn();
+      allow create, update, delete: if admin();
+    }
+    match /summaries/{docId} {
+      allow read: if signedIn();
+      allow write: if admin();
+    }
   }
 }

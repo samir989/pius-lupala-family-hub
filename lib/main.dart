@@ -30,6 +30,7 @@ class MamaGroupApp extends StatelessWidget {
       providers: [
         Provider(create: (_) => AuthService()),
         Provider(create: (_) => FirestoreService()),
+        Provider(create: (_) => NotificationService()),
         ProxyProvider<FirestoreService, GroupRepository>(
           update: (_, service, __) => GroupRepository(service),
         ),
@@ -52,7 +53,15 @@ class MamaGroupApp extends StatelessWidget {
           ],
           home: StreamBuilder(
             stream: context.read<AuthService>().authStateChanges,
-            builder: (context, snapshot) => snapshot.hasData ? const DashboardScreen() : const LoginScreen(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                context.read<NotificationService>().token().then((token) {
+                  if (token != null) context.read<AuthService>().saveFcmToken(token);
+                });
+                return const DashboardScreen();
+              }
+              return const LoginScreen();
+            },
           ),
         ),
       ),
