@@ -1,0 +1,7 @@
+{
+  "members": [{"name":"Asha Juma","phone":"+255700000001","nationalId":"19800101123456789001","address":"Dar es Salaam","joinDate":"2026-01-10"}],
+  "savings": [{"memberId":"sample-member-1","amount":50000,"date":"2026-06-01"}],
+  "loans": [{"memberId":"sample-member-1","amount":200000,"interest":10,"balance":220000,"issueDate":"2026-05-01","dueDate":"2026-08-01"}],
+  "social_fund": [{"type":"contribution","amount":10000,"description":"Monthly social fund","date":"2026-06-01"}],
+  "meetings": [{"date":"2026-06-20","agenda":"Monthly savings review","decisions":"Approve new loan applications"}]
+}

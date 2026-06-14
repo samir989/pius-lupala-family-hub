@@ -1,0 +1,1 @@
+class AppUser { final String id,name,phone,role; const AppUser({required this.id,required this.name,required this.phone,this.role='member'}); factory AppUser.fromMap(String id, Map<String,dynamic> m)=>AppUser(id:id,name:m['name']??'',phone:m['phone']??'',role:m['role']??'member'); Map<String,dynamic> toMap()=>{'name':name,'phone':phone,'role':role}; }
